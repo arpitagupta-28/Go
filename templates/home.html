@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+{% endblock %}
+{% block content %}
+    <div id="title">
+	<form>
+		<input id="searchBox" type="text" name="searchQuery">
+		<input id="searchButton" type="submit" value="Search", >
+	</form>
+
+	{% if not loggedIn %}
+	<div id="signInButton">
+		<a class="link" href="/loginForm">Sign In</a>
+	</div>
+	{% else %}
+	<div class="dropdown">
+		<button class="dropbtn">Hello, <br>{{firstName}}</button>
+		<div class="dropdown-content">
+			<a href="/account/orders">Your orders</a>
+			<a href="/account/profile">Your profile</a>
+			<hr>
+			<a href="/logout">Sign Out</a>
+		</div>
+	</div>
+	{% endif %}
+	<div id="kart">
+		<a class="link" href="/cart">
+			CART {{noOfItems}}
+		</a>
+	</div>
+    </div>
+    <div>
+		<h2>Items</h2>
+		{% for data in itemData %}
+		<table>
+            <tr id="productName">
+				{% for row in data %}
+				<td>
+					{{row[1]}}
+				</td>
+				{% endfor %}
+			</tr>
+            </tr>
+			<tr id="productPrice">
+				{% for row in data %}
+				<td>
+					Rs {{row[2]}}
+				</td>
+				{% endfor %}
+            </tr>
+		</table>
+		{% endfor %}
+	</div>
+    </div>
+{% endblock %}

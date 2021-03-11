@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+   <div>
+		<h2>Items</h2>
+		{% for data in itemData %}
+		<table>
+            <tr id="productName">
+				{% for row in data %}
+				<td>
+					{{row[1]}}
+				</td>
+				{% endfor %}
+			</tr>
+            </tr>
+			<tr id="productPrice">
+				{% for row in data %}
+				<td>
+					Rs {{row[2]}}
+				</td>
+				{% endfor %}
+            </tr>
+		</table>
+		{% endfor %}
+	</div>
+    </div>
+{% endblock %}

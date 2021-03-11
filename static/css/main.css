@@ -1,0 +1,25 @@
+*
+{
+   box-sizing:border-box;
+}
+
+.navbar navbar-expand-lg navbar-light
+{
+   background-color:#9664C8;
+}
+
+.navbar-brand
+{
+   color:white;
+   font-family:Lucida Handwriting;
+}
+
+a > .nav-link active
+{
+   color:white;
+}
+
+.nav-item nav-link
+{
+   color:white;
+}
